@@ -8,6 +8,10 @@ const CarSchema = new mongoose.Schema(
     model: { type: String },
     year: { type: Number },
     plateNumber: { type: Number },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true },
 );

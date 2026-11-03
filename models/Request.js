@@ -5,7 +5,12 @@ const RequestSchema = new mongoose.Schema(
     description: { type: String },
     lcation: { type: String },
     status: { type: String },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
+
   { timestamps: true },
 );
 
