@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const RequestSchema = new mongoose.Schema(
   {
-    description: { type: String },
-    lcation: { type: String },
+    description: { type: String, required: true },
+    lcation: { type: String, required: true },
     status: { type: String },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
