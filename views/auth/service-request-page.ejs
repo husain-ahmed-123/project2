@@ -7,6 +7,18 @@
   </head>
   <body>
     <%- include('./partials/navbar') %>
-    <h1>car</h1>
+   <h1>My Requests</h1>
+
+<a href="/requests/new">Create Request</a>
+
+<% requests.forEach(request => { %>
+  
+    <h2><%= request.description %></h2>
+    <p><%= request.location %></p>
+    <p><%= request.status %></p>
+
+    <a href="/requests/<%= request._id %>">View</a>
+  
+<% }) %>
   </body>
 </html>
