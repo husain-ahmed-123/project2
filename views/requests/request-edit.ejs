@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Edit Request</h1>
+     <form method="post" action="/requests">
+      <label for="description">description</label>
+      <input value="<%= request.description%>" id="description" name="description" type="text" />
+
+      <label for="location">location</label>
+      <input value="<%= request.location%>" id="location" name="location" type="text" />
+
+      <label for="status">status</label>
+      <input value="<%= request.status%>"id="status" name="status" type="text" />
+      
+      <select required name="problem" id="problem">
+        <option value="">Choose Problem</option>
+        <option value="fuel">fuel</option>
+        <option value="flat wheels">flat wheels</option>
+        <option value="battery">battery</option>
+        <option value=""></option>
+      </select>
+      <label for="car">Which Car?</label>
+      <select required name="car" id="car">
+        <option value="">Choose Car</option>
+
+        <% for(let oneCar of cars){ %>
+            <option value="<%= oneCar._id %>"><%= oneCar.name %>"</option>
+        <% } %>
+       
+      </select>
+
+      <button>Create</button>
+    </form>
+  </body>
+</html>

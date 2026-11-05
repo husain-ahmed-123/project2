@@ -38,8 +38,8 @@ router.get("/:carsId/edit", async (req, res) => {
   const foundcars = await Cars.findById(req.params.carsId);
   res.render("edit-cars.ejs", { cars: foundcars });
 });
-router.put("/:carsId", async (req, res) => {
-  const updateCars = await Cars.findByIdAndUpdate(req.params.cardId, req.body);
+router.put("/:carsId/update", async (req, res) => {
+  const updateCars = await Cars.findByIdAndUpdate(req.params.cardId);
   res.redirect("/cars");
 });
 

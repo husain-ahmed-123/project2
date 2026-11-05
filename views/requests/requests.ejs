@@ -21,6 +21,11 @@
            <button>submit</button>
         <form action="/requests/<%=request.id%>?_method=Delete" method="post">
       <button>Delete request</button>
+      </form>
+
+            <form action="/requests/<%=request.id%>/edit" method="get">
+      <button>update request</button>
+              </form>
   
 <% }) %>
 

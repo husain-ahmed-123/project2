@@ -58,5 +58,18 @@ router.delete("/:requestId", isSignedIn, async (req, res) => {
 
   res.redirect("/requests");
 });
+router.get("/:requestId/edit", async (req, res) => {
+  const foundRequest = await Request.findById(req.params.requestId);
+  const myCars = await Car.find({ owner: req.session.user._id });
+
+  res.render("requests/request-edit.ejs", {
+    request: foundRequest,
+    cars: myCars,
+  });
+});
+router.put("/:carsId/update", async (req, res) => {
+  const updateCars = await Cars.findByIdAndUpdate(req.params.cardId);
+  res.redirect("/cars");
+});
 
 module.exports = router;
