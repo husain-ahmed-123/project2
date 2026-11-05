@@ -17,17 +17,22 @@
 
       <label for="status">status</label>
       <input id="status" name="status" type="text" />
-
+      
+      <select name="problem" id="problem">
+        <option value="fuel">fuel</option>
+        <option value="flat wheels">flat wheels</option>
+        <option value="battery">battery</option>
+        <option value=""></option>
+      </select>
       <label for="car">Which Car?</label>
       <select name="car" id="car">
         <% for(let oneCar of cars){ %>
             <option value="<%= oneCar._id %>"><%= oneCar.name %>"</option>
         <% } %>
+       
       </select>
+       <button>submit</button>
     </form>
-   <button>flat wheels</button>
-   <button>is emergancy</button>
-   <button>battery</button>
-   <button></button>
+   
   </body>
 </html>

@@ -5,6 +5,7 @@ const RequestSchema = new mongoose.Schema(
     description: { type: String, required: true },
     location: { type: String, required: true },
     status: { type: String },
+    problem: { type: String },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
