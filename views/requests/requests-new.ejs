@@ -8,7 +8,7 @@
   <body>
     <h1>Create new Request</h1>
 
-    <form action="">
+    <form method="post" action="/requests">
       <label for="description">description</label>
       <input id="description" name="description" type="text" />
 
@@ -18,14 +18,17 @@
       <label for="status">status</label>
       <input id="status" name="status" type="text" />
       
-      <select name="problem" id="problem">
+      <select required name="problem" id="problem">
+        <option value="">Choose Problem</option>
         <option value="fuel">fuel</option>
         <option value="flat wheels">flat wheels</option>
         <option value="battery">battery</option>
         <option value=""></option>
       </select>
       <label for="car">Which Car?</label>
-      <select name="car" id="car">
+      <select required name="car" id="car">
+        <option value="">Choose Car</option>
+
         <% for(let oneCar of cars){ %>
             <option value="<%= oneCar._id %>"><%= oneCar.name %>"</option>
         <% } %>

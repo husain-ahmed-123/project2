@@ -19,19 +19,17 @@ router.get("/new", isSignedIn, async (req, res) => {
   const myCars = await Car.find({ owner: req.session.user._id });
   res.render("requests/requests-new.ejs", { cars: myCars });
 });
-router.post("/", async (req, res) => {
-  const requestCreate = await Request.create({
-    descriptionme: req.body.description,
-    lcation: req.body.lcation,
+
+router.post("/", isSignedIn, async (req, res) => {
+  console.log(req.body);
+  const newRequest = await Request.create({
+    description: req.body.description,
+    location: req.body.location,
     status: req.body.status,
+    problem: req.body.problem,
+    car: req.body.car,
     owner: req.session.user._id,
   });
-  res.redirect("/");
-});
-router.post("/", isSignedIn, async (req, res) => {
-  req.body.owner = req.session.user._id;
-
-  await Request.create(req.body);
 
   res.redirect("/requests");
 });
