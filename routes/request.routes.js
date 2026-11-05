@@ -50,12 +50,7 @@ router.get("/:requestId", isSignedIn, async (req, res) => {
 });
 
 router.delete("/:requestId", isSignedIn, async (req, res) => {
-  const request = await Request.findOneAndDelete({
-    descriptionme: req.body.description,
-    lcation: req.body.lcation,
-    status: req.body.status,
-    owner: req.session.user._id,
-  });
+  const request = await Request.findByIdAndDelete(req.params.requestId);
 
   if (!request) {
     return res.send("Request not found.");
