@@ -6,6 +6,17 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>car details</h1>
+    <h1>car register</h1>
+  
+    <form action="/routes/car.register" method="post">
+      <label for="name">name:</label>
+      <input name="name" id="name" type="text" />
+
+      <label for="model">car model</label>
+      <input name="model" id="model" type="text" />
+         <label for="plateNumber">plate number</label>
+      <input name="plateNumber" id="plateNumber" type="number" />
+      
+      <button>register car</button>
   </body>
 </html>
