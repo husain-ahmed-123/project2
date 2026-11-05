@@ -3,16 +3,19 @@ const router = express.Router();
 const Request = require("../models/Request.js");
 const isSignedIn = require("../middleware/is-signed-in.js");
 
+// /requests: specifiy the issue we have. page for creating new request
+// /
+
 router.get("/", isSignedIn, async (req, res) => {
   const requests = await Request.find({
     owner: req.session.user._id,
   });
 
-  res.render("requests/index.ejs", { requests });
+  res.render("requests/car-register.ejs", { requests });
 });
 
 router.get("/new", isSignedIn, (req, res) => {
-  res.render("requests/new.ejs");
+  res.render("requests/car-register.ejs");
 });
 
 router.post("/", isSignedIn, async (req, res) => {
@@ -20,7 +23,7 @@ router.post("/", isSignedIn, async (req, res) => {
 
   await Request.create(req.body);
 
-  res.redirect("/requests");
+  res.redirect("/car-register");
 });
 
 router.get("/:requestId", isSignedIn, async (req, res) => {
@@ -33,7 +36,7 @@ router.get("/:requestId", isSignedIn, async (req, res) => {
     return res.send("Request not found.");
   }
 
-  res.render("requests/show.ejs", { request });
+  res.render("requests/car-register.ejs", { request });
 });
 
 router.delete("/:requestId", isSignedIn, async (req, res) => {
