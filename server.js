@@ -15,6 +15,7 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 // routes Imports
 const authController = require("./routes/auth.routes.js");
 const indexController = require("./routes/index.routes.js");
+const carController = require("./routes/car.register.js");
 
 // Middleware
 app.use(express.static("public")); // my app will serve all static files from public folder
@@ -44,6 +45,7 @@ app.use(passUserToView);
 app.use("/auth", authController);
 app.use("/", indexController);
 app.use("/requests", requestController);
+app.use("/cars", carController);
 
 // connect to database and listen on Port 3000
 async function startServer() {

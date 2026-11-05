@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Create new Request</h1>
+
+    <form action="">
+      <label for="description">description</label>
+      <input id="description" name="description" type="text" />
+
+      <label for="location">location</label>
+      <input id="location" name="location" type="text" />
+
+      <label for="status">status</label>
+      <input id="status" name="status" type="text" />
+
+      <label for="car">Which Car?</label>
+      <select name="car" id="car">
+        <% for(let oneCar of cars){ %>
+            <option value="<%= oneCar._id %>"><%= oneCar.name %>"</option>
+        <% } %>
+      </select>
+    </form>
+   <button>flat wheels</button>
+   <button>is emergancy</button>
+   <button>battery</button>
+   <button></button>
+  </body>
+</html>

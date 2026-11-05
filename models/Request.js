@@ -3,11 +3,15 @@ const mongoose = require("mongoose");
 const RequestSchema = new mongoose.Schema(
   {
     description: { type: String, required: true },
-    lcation: { type: String, required: true },
+    location: { type: String, required: true },
     status: { type: String },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+    },
+    car: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Car",
     },
   },
 
