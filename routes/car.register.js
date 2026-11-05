@@ -6,7 +6,7 @@ const isSignedIn = require("../middleware/is-signed-in.js");
 
 //new
 router.get("/new", (req, res) => {
-  res.render("create-cars.ejs");
+  res.render("requests/car-register.ejs");
 });
 //display
 router.get("/", async (req, res) => {

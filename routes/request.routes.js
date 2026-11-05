@@ -67,9 +67,12 @@ router.get("/:requestId/edit", async (req, res) => {
     cars: myCars,
   });
 });
-router.put("/:carsId/update", async (req, res) => {
-  const updateCars = await Cars.findByIdAndUpdate(req.params.cardId);
-  res.redirect("/cars");
+router.put("/:requestId", async (req, res) => {
+  const updateCars = await Request.findByIdAndUpdate(
+    req.params.requestId,
+    req.body,
+  );
+  res.redirect("/requests");
 });
 
 module.exports = router;

@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Edit Request</h1>
-     <form method="post" action="/requests">
+     <form method="post" action="/requests/<%=request._id%>?_method=PUT">
       <label for="description">description</label>
       <input value="<%= request.description%>" id="description" name="description" type="text" />
 
