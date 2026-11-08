@@ -3,7 +3,7 @@ const router = express.Router();
 const Review = require("../models/Review.js");
 const isSignedIn = require("../middleware/is-signed-in.js");
 //new
-router.get("/review/new", (req, res) => {
+router.get("/new", (req, res) => {
   res.render("requests/review.ejs");
 });
 //display
