@@ -1,17 +1,14 @@
-<nav>
-    
-    <a href="/">Homepage</a>
-    <% if (user){ %>
-    <a href="/auth/sign-out">Logout</a>
-
-    <% } else{ %>
-    <a href="/auth/sign-up">Sign up</a>
-    <a href="/auth/sign-in">Login</a>
-
-    <% } %>
+<nav class="site-nav" aria-label="Main navigation">
+  <a class="site-nav__brand" href="/">Roadside Assist</a>
+  <div class="site-nav__links">
+    <a href="/requests">My Requests</a>
+    <a href="/cars/new">Register Car</a>
    
-    <a href="/requests">request</a>
-    <a href="/car-register">register car</a>
-    <a href="/review">review</a>
-
+    <% if (user) { %>
+      <a href="/auth/sign-out">Sign out</a>
+    <% } else { %>
+      <a href="/auth/sign-in">Sign in</a>
+      <a class="site-nav__signup" href="/auth/sign-up">Sign up</a>
+    <% } %>
+  </div>
 </nav>

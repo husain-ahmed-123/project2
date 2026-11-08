@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <%- include('../partials/navbar') %>
@@ -17,7 +18,7 @@
     <p><%= request.location %></p>
     <p><%= request.status %></p>
 
-    <a href="/review/new?requestId=<%= request._id %>">Review this request</a>
+    
     <a href="/requests/<%= request._id %>">View</a>
            <button>submit</button>
         <form action="/requests/<%=request.id%>?_method=Delete" method="post">

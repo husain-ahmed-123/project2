@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reviews</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <%- include('../partials/navbar') %>
-    <a href="/review/new">review</a>
-    <h1>review</h1>
+    <h1>Reviews</h1>
     <% review.forEach(r => { %>
-    <h2><%= review.text %></h2>
-    <p><%= review.stars %></p>
-<% }) %>
+      <article class="review-card">
+        <h2><%= r.text %></h2>
+        <p><%= r.stars %> / 5 stars</p>
+      </article>
+    <% }) %>
   </body>
 </html>

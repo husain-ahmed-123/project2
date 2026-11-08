@@ -3,6 +3,7 @@ const router = express.Router();
 const Request = require("../models/Request.js");
 const isSignedIn = require("../middleware/is-signed-in.js");
 const Car = require("../models/Car.js");
+const Review = require("../models/Review.js");
 
 // /requests: specifiy the issue we have. page for creating new request
 // /
@@ -35,8 +36,16 @@ router.post("/", isSignedIn, async (req, res) => {
 });
 
 router.get("/:requestId", async (req, res) => {
+  const reviews = await Review.find({ request: req.params.requestId }).populate(
+    {
+      path: "request",
+      populate: {
+        path: "owner",
+      },
+    },
+  );
   const found = await Request.findById(req.params.requestId);
-  res.render("requests/request-details.ejs", { request: found });
+  res.render("requests/request-details.ejs", { request: found, reviews });
 });
 
 router.delete("/:requestId", isSignedIn, async (req, res) => {

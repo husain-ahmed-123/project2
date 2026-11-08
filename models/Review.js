@@ -13,6 +13,7 @@ const ReviewSchema = new mongoose.Schema(
     request: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Request",
+      unique: true,
     },
   },
   { timestamps: true },

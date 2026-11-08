@@ -47,7 +47,7 @@ app.use(passUserToView);
 app.use("/auth", authController);
 app.use("/", indexController);
 app.use("/requests", requestController);
-app.use("/review", reviewController);
+app.use("/reviews", reviewController);
 app.use("/cars", carController);
 
 // connect to database and listen on Port 3000

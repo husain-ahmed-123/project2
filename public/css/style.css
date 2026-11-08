@@ -1,0 +1,122 @@
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: min(100% - 32px, 1120px);
+  min-height: 78px;
+  margin: 24px auto 40px;
+  padding: 14px 22px;
+  border: 1px solid #e5e9e1;
+  border-radius: 20px;
+  background: #fffefa;
+  box-shadow: 0 12px 34px rgb(34 51 39 / 8%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.site-nav a {
+  color: #536457;
+  font-size: 0.94rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.site-nav a:hover {
+  color: #24744d;
+}
+
+.site-nav .site-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #193b2b;
+  font-size: 1.2rem;
+  font-weight: 850;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+.site-nav__brand::before {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  color: #fffefa;
+  background: #24744d;
+  content: "R";
+  font-size: 1.1rem;
+  font-weight: 850;
+  place-items: center;
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.site-nav__links a {
+  padding: 10px 13px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.site-nav__links a:hover {
+  background: #edf4ed;
+}
+
+.site-nav__links .site-nav__signup {
+  margin-left: 5px;
+  padding: 11px 17px;
+  color: white;
+  background: #24744d;
+  box-shadow: 0 5px 12px rgb(36 116 77 / 18%);
+}
+
+.site-nav__links .site-nav__signup:hover {
+  color: white;
+  background: #1c5e3e;
+  box-shadow: 0 7px 16px rgb(36 116 77 / 24%);
+  transform: translateY(-1px);
+}
+
+.site-nav a:focus-visible {
+  outline: 3px solid #83b99a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .site-nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 16px;
+  }
+
+  .site-nav__links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .site-nav__links a {
+    padding: 9px 10px;
+  }
+
+  .site-nav__links .site-nav__signup {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav a {
+    transition: none;
+  }
+}
