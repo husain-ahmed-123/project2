@@ -17,7 +17,8 @@
     <p><%= request.location %></p>
     <p><%= request.status %></p>
 
-    <a href="/auth/requests/<%= request._id %>">View</a>
+    <a href="/review/new?requestId=<%= request._id %>">Review this request</a>
+    <a href="/requests/<%= request._id %>">View</a>
            <button>submit</button>
         <form action="/requests/<%=request.id%>?_method=Delete" method="post">
       <button>Delete request</button>

@@ -34,19 +34,9 @@ router.post("/", isSignedIn, async (req, res) => {
   res.redirect("/requests");
 });
 
-router.get("/:requestId", isSignedIn, async (req, res) => {
-  const request = await Request.find({
-    descriptionme: req.body.description,
-    lcation: req.body.lcation,
-    status: req.body.status,
-    owner: req.session.user._id,
-  });
-
-  if (!request) {
-    return res.send("Request not found.");
-  }
-
-  res.render("requests/requests.ejs", { request });
+router.get("/:requestId", async (req, res) => {
+  const found = await Request.findById(req.params.requestId);
+  res.render("requests/request-details.ejs", { request: found });
 });
 
 router.delete("/:requestId", isSignedIn, async (req, res) => {

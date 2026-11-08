@@ -8,6 +8,8 @@ const methodOverride = require("method-override");
 const { MongoStore } = require("connect-mongo");
 const connectToDB = require("./db.js");
 const requestController = require("./routes/request.routes.js");
+const reviewController = require("./routes/review.routes.js");
+const requestDetails = require("./routes/request.details.js");
 // middleware imports
 const isSignedIn = require("./middleware/is-signed-in.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
@@ -16,7 +18,7 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 const authController = require("./routes/auth.routes.js");
 const indexController = require("./routes/index.routes.js");
 const carController = require("./routes/car.register.js");
-
+const requsetController = require("./routes/request.details.js");
 // Middleware
 app.use(express.static("public")); // my app will serve all static files from public folder
 app.use(express.urlencoded({ extended: false }));
@@ -45,6 +47,7 @@ app.use(passUserToView);
 app.use("/auth", authController);
 app.use("/", indexController);
 app.use("/requests", requestController);
+app.use("/review", reviewController);
 app.use("/cars", carController);
 
 // connect to database and listen on Port 3000

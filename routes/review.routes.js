@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
   const allReview = await Review.find();
   res.render("review.ejs", { review: allReview });
 });
+
 router.post("/", isSignedIn, async (req, res) => {
   console.log(req.body);
   const newReview = await Review.create({
