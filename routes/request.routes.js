@@ -5,9 +5,6 @@ const isSignedIn = require("../middleware/is-signed-in.js");
 const Car = require("../models/Car.js");
 const Review = require("../models/Review.js");
 
-// /requests: specifiy the issue we have. page for creating new request
-// /
-
 router.get("/", isSignedIn, async (req, res) => {
   const requests = await Request.find({
     owner: req.session.user._id,

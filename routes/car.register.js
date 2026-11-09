@@ -4,16 +4,15 @@ const Request = require("../models/Request.js");
 const Cars = require("../models/Car.js");
 const isSignedIn = require("../middleware/is-signed-in.js");
 
-//new
 router.get("/new", (req, res) => {
   res.render("requests/car-register.ejs");
 });
-//display
+
 router.get("/", async (req, res) => {
   const allCars = await Cars.find();
   res.render("cars-list.ejs", { cars: allCars });
 });
-//delete
+
 router.delete("/:carsId/delete", async (req, res) => {
   console.log("delete cars");
   await Cars.findByIdAndDelete(req.params.carsId);
