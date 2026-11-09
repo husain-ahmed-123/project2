@@ -6,6 +6,7 @@ const RequestSchema = new mongoose.Schema(
     location: { type: String, required: true },
     status: { type: String },
     problem: { type: String },
+    phoneNumber: { type: Number },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

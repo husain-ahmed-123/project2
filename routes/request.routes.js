@@ -25,6 +25,7 @@ router.post("/", isSignedIn, async (req, res) => {
     location: req.body.location,
     status: req.body.status,
     problem: req.body.problem,
+    phoneNumber: req.body.phoneNumber,
     car: req.body.car,
     owner: req.session.user._id,
   });

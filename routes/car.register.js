@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
     plateNumber: req.body.plateNumber,
     owner: req.session.user._id,
   });
-  res.redirect("/");
+  res.redirect("/requests");
 });
 router.get("/:carsId/edit", async (req, res) => {
   const foundcars = await Cars.findById(req.params.carsId);
