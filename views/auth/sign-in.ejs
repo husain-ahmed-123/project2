@@ -8,13 +8,17 @@
   </head>
   <body>
     <%- include('../partials/navbar') %>
-    <h1>Sign in</h1>
-    <form action="/auth/sign-in" method="POST">
+    <main class="page-shell">
+    <form class="form-card" action="/auth/sign-in" method="POST">
+      <p class="eyebrow">Welcome back</p>
+      <h1>Sign in</h1>
+      <p class="form-card__intro">Pick up right where you left off.</p>
       <label for="email">email:</label>
       <input type="email" name="email" id="email" />
       <label for="password">Password:</label>
       <input type="password" name="password" id="password" />
       <button type="submit">Sign in</button>
     </form>
+    </main>
   </body>
 </html>

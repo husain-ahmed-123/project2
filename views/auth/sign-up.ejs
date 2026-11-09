@@ -8,8 +8,11 @@
   </head>
   <body>
     <%- include('../partials/navbar') %>
-    <h1>Create a new account!</h1>
-    <form action="/auth/sign-up" method="post">
+    <main class="page-shell">
+    <form class="form-card" action="/auth/sign-up" method="post">
+      <p class="eyebrow">A little peace of mind</p>
+      <h1>Create your account</h1>
+      <p class="form-card__intro">Get roadside support whenever you need it.</p>
       <label for="email">email:</label>
       <input type="email" name="email" id="email" />
       <label for="password">Password:</label>
@@ -18,5 +21,6 @@
       <input type="password" name="confirmPassword" id="confirmPassword" />
       <button type="submit">Sign up</button>
     </form>
+    </main>
   </body>
 </html>

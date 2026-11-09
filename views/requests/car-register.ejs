@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Register Car | Roadside Assist</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <%- include('../partials/navbar') %>
-    <h1>car register</h1>
-  
-    <form action="/cars" method="post">
+    <main class="page-shell">
+    <form class="form-card" action="/cars" method="post">
+      <p class="eyebrow">A smoother rescue starts here</p>
+      <h1>Register your car</h1>
+      <p class="form-card__intro">Add your vehicle details for a faster request next time.</p>
       <label for="name">name:</label>
       <input name="name" id="name" type="text" />
 
@@ -22,5 +24,7 @@
       <input name="year" id="year" type="number" />
       
       <button>register car</button>
+    </form>
+    </main>
   </body>
 </html>

@@ -8,12 +8,25 @@
   </head>
   <body>
     <%- include('../partials/navbar') %>
-    <h1>Reviews</h1>
-    <% review.forEach(r => { %>
-      <article class="review-card">
-        <h2><%= r.text %></h2>
-        <p><%= r.stars %> / 5 stars</p>
-      </article>
-    <% }) %>
+    <main class="page-shell">
+      <header class="page-heading">
+        <div>
+          <p class="eyebrow">Good things from the road</p>
+          <h1>Reviews</h1>
+        </div>
+      </header>
+      <% if (review.length) { %>
+        <div class="review-grid">
+          <% review.forEach(r => { %>
+            <article class="review-card">
+              <h2><%= r.text %></h2>
+              <p class="review-stars"><%= '⭐'.repeat(Number(r.stars)) %></p>
+            </article>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <p class="empty-state">No reviews yet.</p>
+      <% } %>
+    </main>
   </body>
 </html>

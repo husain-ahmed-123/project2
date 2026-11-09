@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Edit Request | Roadside Assist</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <%- include('../partials/navbar') %>
-    <h1>Edit Request</h1>
-     <form method="post" action="/requests/<%=request._id%>?_method=PUT">
+    <main class="page-shell">
+     <form class="form-card" method="post" action="/requests/<%=request._id%>?_method=PUT">
+      <p class="eyebrow">Keep us in the loop</p>
+      <h1>Edit request</h1>
+      <p class="form-card__intro">Update the details so we can give you the right support.</p>
       <label for="description">description</label>
       <input value="<%= request.description%>" id="description" name="description" type="text" />
 
@@ -19,6 +22,7 @@
       <label for="status">status</label>
       <input value="<%= request.status%>"id="status" name="status" type="text" />
       
+      <label for="problem">What happened?</label>
       <select required name="problem" id="problem">
         <option value="">Choose Problem</option>
         <option value="fuel">fuel</option>
@@ -36,7 +40,8 @@
        
       </select>
 
-      <button>Create</button>
+      <button>Save changes</button>
     </form>
+    </main>
   </body>
 </html>

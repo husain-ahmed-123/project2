@@ -3,33 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>My Requests | Roadside Assist</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <%- include('../partials/navbar') %>
-   <h1>My Requests</h1>
+    <main class="page-shell">
+      <header class="page-heading">
+        <div>
+          <p class="eyebrow">Your roadside dashboard</p>
+          <h1>My requests</h1>
+        </div>
+        <a class="button-link" href="/requests/new">+ Create request</a>
+      </header>
 
-<a href="/requests/new">Create Request</a>
-
-<% requests.forEach(request => { %>
-  
-    <h2><%= request.description %></h2>
-    <p><%= request.location %></p>
-    <p><%= request.status %></p>
-
-    
-    <a href="/requests/<%= request._id %>">View</a>
-           <button>submit</button>
-        <form action="/requests/<%=request.id%>?_method=Delete" method="post">
-      <button>Delete request</button>
-      </form>
-
-            <form action="/requests/<%=request.id%>/edit" method="get">
-      <button>update request</button>
-              </form>
-  
-<% }) %>
+      <% if (requests.length) { %>
+        <div class="request-grid">
+          <% requests.forEach(request => { %>
+            <article class="request-card">
+              <p class="eyebrow">Assistance request</p>
+              <h2><%= request.description %></h2>
+              <p class="request-card__location"><%= request.location %></p>
+              <span class="request-card__status"><%= request.status %></span>
+              <div class="request-card__actions">
+                <a href="/requests/<%= request._id %>">View details</a>
+                <form action="/requests/<%= request.id %>/edit" method="get">
+                  <button class="button-secondary" type="submit">Edit</button>
+                </form>
+                <form action="/requests/<%= request.id %>?_method=Delete" method="post">
+                  <button class="button-danger" type="submit">Delete</button>
+                </form>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <div class="empty-state">
+          <h2>No requests yet</h2>
+          <p>Your requests will show up here when you need a hand.</p>
+          <a href="/requests/new">Create your first request</a>
+        </div>
+      <% } %>
+    </main>
 
   </body>
 </html>
