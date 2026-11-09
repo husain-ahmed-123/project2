@@ -1,12 +1,37 @@
-# Project Name
+# Roadside Assist
+
+Roadside Assist is a full-stack web application designed to help drivers request help quickly when their vehicle breaks down. The app allows users to create an account, register their car, submit roadside assistance requests, and review past requests. It combines a clean landing page with secure authentication and MongoDB-powered data storage.
 
 ## Overview
 
+When the road gets rough, Roadside Assist is there to help. The site is built around the idea that drivers need fast, simple support when dealing with unexpected vehicle issues such as flat tires, dead batteries, fuel shortages, or other roadside emergencies.
+
 ## Screenshots
+
+<img src= "/Users/husain/code/ga/project2/images/Screenshot 2026-11-09 at 9.34.40 AM.png">
+
+<img src= "/Users/husain/code/ga/project2/images/Screenshot 2026-11-09 at 9.34.53 AM.png">
+
+<img src= "/Users/husain/code/ga/project2/images/Screenshot 2026-11-09 at 9.34.03 AM.png">
+
+<img src= "/Users/husain/code/ga/project2/images/Screenshot 2026-11-09 at 9.35.06 AM.png">
+
+<img src= "/Users/husain/code/ga/project2/images/Screenshot 2026-11-09 at 9.35.44 AM.png">
+
+<img src= "/Users/husain/code/ga/project2/images/Screenshot 2026-11-09 at 9.36.18 AM.png">
 
 ## Technologies Used
 
-## Getting Started
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Express.js
+- EJS templates
+- MongoDB with Mongoose
+- Express Session
+- bcrypt for password hashing
+- method-override for form updates
 
 ## User Stories
 
@@ -30,17 +55,63 @@ User Stories:
 
 models:
 
-1. User
-2. Request: issue, time of day, road you are on, isEmergency,
-3. Car
-4. Review: stars, text
+## Data Models
+
+The app uses the following MongoDB models:
+
+- User
+  - email
+  - password
+- Car
+  - name
+  - model
+  - year
+  - plateNumber
+  - owner
+- Request
+  - description
+  - location
+  - status
+  - problem
+  - phoneNumber
+  - owner
+  - car
+- Review
+  - text
+  - stars
+  - request
 
 ## Database Design
 
+The database is designed around a relationship-based structure:
+
+- One user can have many cars
+- One user can have many roadside assistance requests
+- Each request can be linked to a specific car
+- Each request can have one review
+
 ## Routes
+
+- `/` - Homepage
+- `/auth/sign-up` - Create a new account
+- `/auth/sign-in` - Login to the app
+- `/auth/sign-out` - Sign out
+- `/requests` - View all user requests
+- `/requests/new` - Create a new request
+- `/requests/:requestId` - View a single request
+- `/requests/:requestId/edit` - Edit a request
+- `/cars` - View saved cars
+- `/cars/new` - Register a new car
+- `/reviews` - Review-related routes
 
 ## Features
 
 ## Future Enhancements
+
+- Add admin support for managing all roadside requests
+- Include real-time service tracking and status updates
+- Add map integration for location detection
+- Expand review ratings and filtering
+- Improve mobile responsiveness and accessibility
 
 ## Credits
