@@ -53,8 +53,6 @@ User Stories:
 
 8. View Request Details: As a customer, I want to view the details of an individual request so that I can review its information and status.
 
-models:
-
 ## Data Models
 
 The app uses the following MongoDB models:
